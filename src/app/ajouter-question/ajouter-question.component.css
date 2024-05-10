@@ -1,0 +1,141 @@
+.container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+
+.form-container {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.table-container {
+  flex: 1;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.question-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.form-control {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 60%; 
+}
+
+.custom-select {
+  position: relative;
+  width: 60%;
+}
+
+.custom-select select {
+  width: 100%;
+  padding: 8px;
+  appearance: none;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: white;
+  cursor: pointer;
+}
+
+.custom-select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #333;
+  pointer-events: none;
+}
+
+.btn {
+  padding: 8px 15px;
+  background-color: #27ac7f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 60%;
+}
+
+.btn:hover {
+  background-color: #3cb399;
+}
+
+
+.responses-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.response-item {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.remove-button,
+.add-button {
+  padding: 6px 12px;
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-button {
+  background-color: #27ac7f;
+}
+
+.remove-button:hover,
+.add-button:hover {
+  background-color: #e74c3c;
+}
+
+
+.remove-button,
+.add-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  width: auto;
+  height: auto;
+}
+
+
+.remove-button {
+  margin-left: 90px;
+}
+
+.add-button {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.response-input input[type="text"] {
+  width: 140%;
+}
+
+

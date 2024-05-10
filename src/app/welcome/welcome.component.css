@@ -1,0 +1,52 @@
+/* styles.css */
+
+/* Custom styles */
+.sidenav-container {
+  height: 100vh;
+}
+
+.custom-sidenav {
+  background: #f5faf7; /* Light gray background for the sidenav */
+}
+
+.medical-color {
+  color: #3cb371; /* Medium Sea Green - a different color */
+}
+
+.menu-icon {
+  color: #555; /* Default icon color */
+}
+
+.menu-text {
+  color: #333; /* Default menu text color */
+}
+
+.toolbar {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  background: #3cb399; /* Medium Sea Green - a different color for the toolbar */
+  color: white;
+  font-weight: 600;
+}
+
+.toolbar button {
+  margin-right: 8px;
+}
+
+.app-title {
+  margin-left: 8px;
+}
+
+.content {
+  padding: 16px;
+}
+
+.mat-divider {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  border-top-color: rgba(0, 0, 0, 0.1); /* Light gray separator color */
+}
+
+

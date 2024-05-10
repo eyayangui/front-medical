@@ -1,0 +1,60 @@
+<div class="container"></div>
+<form class="mat-form" (ngSubmit)="createExamen()">
+  <div class="form-row">
+    <mat-form-field class="mat-field" style="width: 350px;">
+      <input matInput type="text" id="libelle" [(ngModel)]="examen.libelle" name="libelle" placeholder="libelle" required>
+      <label for="libelle"></label>
+    </mat-form-field>
+
+
+    <mat-form-field style="width: 350px;">
+      <mat-label>Type Examen</mat-label>
+      <mat-select id="typeExamen" name="typeExamen" [(ngModel)]="examen.typeExamen" required>
+        <mat-option *ngFor="let typeExamen of typeExamenList" [value]="typeExamen.name">
+          {{ typeExamen.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-button class="mat-green" style="color: white;" type="submit">
+      <mat-icon>library_add</mat-icon>Ajouter Examen
+    </button>
+
+
+  </div>
+</form>
+<button mat-button class="mat-green1" style="color: white;" (click)="openAddTypeExamenModal()">
+  <mat-icon>library_add</mat-icon>Ajouter Type Examen
+</button>
+
+<div class="table-container">
+  <mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="libelle">
+      <mat-header-cell *matHeaderCellDef> Libelle </mat-header-cell>
+      <mat-cell *matCellDef="let examen"> {{ examen.libelle }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="typeExamen">
+      <mat-header-cell *matHeaderCellDef> Type Examen </mat-header-cell>
+      <mat-cell *matCellDef="let examen"> {{ examen.typeExamen }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+      <mat-cell *matCellDef="let examen">
+
+        <button mat-button class="delete" style="color: white;" (click)="deleteExamen(examen.idExamen)">
+          <mat-icon>delete_forever</mat-icon> Supprimer</button>
+        <button mat-button class="edit" style="color: white;" (click)="navigateToAddQuestions(examen.idExamen)"> <mat-icon>add_box</mat-icon>
+           ajouter questions </button>
+
+      </mat-cell>
+    </ng-container>
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator [pageSize]="6" showFirstLastButtons></mat-paginator>
+
+</div>
+

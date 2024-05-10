@@ -1,0 +1,65 @@
+
+ <nav mat-tab-nav-bar [tabPanel]="tabPanel">
+  <ng-container *ngFor="let exam of exams">
+    <a mat-tab-link
+   [routerLink]="['/questions', exam.idExamen]"
+   [queryParams]="{ typeExamenId: exam.typeExamenId }"
+   (click)="setActiveTab(exam.libelle)"
+   [active]="activeTab === exam.libelle">
+   {{ exam.libelle }}
+</a>
+  </ng-container>
+</nav>
+<mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
+
+<div *ngFor="let question of questions">
+  <div class="question">
+    <label>{{ question.label }}</label>
+    <ng-container [ngSwitch]="question.responseType">
+      <div *ngSwitchCase="'RADIO'">
+        <div *ngFor="let response of question.responses; let i = index">
+          <label>
+            <input type="radio" [name]="question.label" [value]="response" />
+            {{ response }}
+          </label>
+          <input type="hidden" [name]="'idReponse-' + i" [value]="question.idReponses ? question.idReponses[i] : ''" />
+
+        </div>
+
+      </div>
+      <div *ngSwitchCase="'CHECKBOX'">
+        <div *ngFor="let response of question.responses; let i = index">
+          <label>
+            <input type="checkbox" [name]="question.label" [value]="response" />
+            {{ response }}
+          </label>
+          <input type="hidden" [name]="'idReponse-' + i" [value]="question.idReponses ? question.idReponses[i] : ''" />
+        </div>
+      </div>
+
+      <div *ngSwitchCase="'CHAMP'">
+        <input type="text" [name]="question.label" />
+        <!-- Include a hidden input field for idReponse -->
+        <input type="hidden" [name]="question.label + '-idReponse'" [value]="question.idReponses" />
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+<button
+  mat-raised-button
+  *ngIf="isLastExam()"
+  (click)="submitAllResponses()"
+>
+  Terminer
+</button>
+
+<button
+  mat-raised-button
+  (click)="submitSelectedResponses(); isLastExam() && exams[currentExamIndex + 1] && setActiveTab(exams[currentExamIndex + 1].libelle)"
+>
+  Suivant
+</button>
+
+
+

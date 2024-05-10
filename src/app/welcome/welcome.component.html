@@ -1,0 +1,45 @@
+<!-- app.component.html -->
+<div>
+  <mat-sidenav-container class="sidenav-container" >
+    <mat-sidenav mode="side" class="custom-sidenav"  *ngIf="isLoginRoute()">
+      <mat-nav-list>
+        <mat-list-item routerLink="/" routerLinkActive="active">
+          <mat-icon class="menu-icon medical-color">dashboard</mat-icon>
+          <span class="menu-text medical-color">Dashboard</span>
+        </mat-list-item>
+        <mat-list-item routerLink="/listpatient" routerLinkActive="active">
+          <mat-icon class="menu-icon">person</mat-icon>
+          <span class="menu-text">Gestion des patients</span>
+        </mat-list-item>
+
+        <mat-list-item routerLink="/examen" routerLinkActive="active">
+          <mat-icon class="menu-icon">person</mat-icon>
+          <span class="menu-text">Gestion des Examens</span>
+        </mat-list-item>
+
+        <mat-list-item routerLink="" routerLinkActive="active">
+          <mat-icon class="menu-icon">people</mat-icon>
+          <span class="menu-text">Liste Dossier Patient</span>
+        </mat-list-item>
+      </mat-nav-list>
+      <mat-nav-list>
+        <mat-list-item routerLink="#">
+          <mat-icon class="menu-icon">logout</mat-icon>
+          <span class="menu-text">Logout</span>
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <div class="toolbar"  *ngIf="isLoginRoute()">
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span class="app-title">MEDICA</span>
+      </div>
+      <div class="content">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  </div>

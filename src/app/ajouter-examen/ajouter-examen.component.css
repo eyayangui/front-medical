@@ -1,0 +1,74 @@
+.mat-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+}
+
+.mat-field {
+  width: 45%; /* Adjust as needed */
+}
+
+.mat-radio-group {
+  display: flex;
+  align-items: center;
+}
+
+.mat-radio-button {
+  margin-right: 10px;
+
+}
+
+button {
+  margin-left: 10px;
+}
+
+.mat-green {
+  background-color: #3cb399;
+  color: white;
+  margin-right: 30px;
+}
+
+.mat-green1 {
+  background-color: #27ac7f;
+  color: white;
+  margin-bottom: 20px;
+  margin-left: 545px;
+}
+
+.edit {
+  background-color: #27ac7f;
+  color: white;
+}
+
+.delete {
+  background-color: #b33c56;
+  color: white;
+}
+
+
+::ng-deep .mat-select-value {
+  background-color: #2196F3;
+  color: white;
+  border-radius: 4px; /* Add rounded corners */
+  padding: 8px 12px; /* Add padding to the selected option */
+  font-weight: bold; /* Make the text bold */
+  width: 200px; /* Set the width to your desired value */
+}
+
+/* Custom CSS to style the arrow icon */
+::ng-deep .mat-select-arrow {
+  color: white; /* Change the arrow color */
+}
+
+
+
+

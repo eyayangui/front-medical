@@ -1,0 +1,52 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Information de Patient </h5>
+
+    <!-- Check if 'patient' exists before displaying its properties -->
+    <div *ngIf="patient">
+
+      <div class="patient-info">
+        <p class="info-label"> Prénom : {{ patient.firstname }}</p>
+        <p class="info-value"></p>
+      </div>
+      <div class="patient-info">
+        <p class="info-label">Nom : {{ patient.lastname }}</p>
+        <p class="info-value"></p>
+      </div>
+      <div class="patient-info">
+        <p class="info-label">Téléphone : {{ patient.phoneNumber }}</p>
+        <p class="info-value"></p>
+      </div>
+    </div>
+
+    <div class="exam-selector">
+      <div class="button-container" *ngFor="let button of buttons">
+        <button class="exam-button" (click)="navigateToQuestions(button.id)">
+          {{ button.name }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<table class="table">
+      <thead>
+        <tr>
+          <th>Consultation</th>
+          <th>Date Consultation</th>
+          <th>Détails</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let consultation of consultations; let i = index">
+          <td>Consultation {{ i + 1 }}</td>
+          <td>{{ consultation.dateConsultation | date }}</td>
+          <td>
+            <button class="detail-button" (click)="viewConsultationDetails(consultation.idConsultation)">
+               détails
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>

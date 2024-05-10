@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="form-container">
+    <h2>Ajouter Des Questions</h2>
+    <form class="question-form" (ngSubmit)="submitForm()" [formGroup]="questionForm">
+      <div class="form-group">
+        <label for="label">Question:</label>
+        <input type="text" id="label" name="label" formControlName="label" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="questionType">Type de Question:</label>
+        <div class="custom-select">
+          <select id="questionType" name="questionType" formControlName="responseType" required>
+            <option value="" disabled selected>Sélectionner Type de Question</option>
+            <option value="RADIO">un seul choix</option>
+            <option value="CHECKBOX">plusieur choix</option>
+            <option value="CHAMP">Text</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="responses">Les choix de reponses:</label>
+        <div class="responses-container">
+          <div *ngFor="let control of responseControls; let i = index" [formGroup]="control" class="response-item">
+            <div class="response-input">
+              <input type="text" formControlName="response" class="form-control" class="form-control input-field">
+            </div>
+            <button type="button" (click)="removeResponse(i)" class="remove-button">Supprimer</button>
+          </div>
+          <button type="button" (click)="addResponse()" class="add-button">Ajouter Reponse</button>
+        </div>
+      </div>
+
+
+
+      <button type="submit" class="btn btn-primary">Ajouter Question</button>
+    </form>
+  </div>
+  <div class="table-container">
+    <!-- Add your table here -->
+    <mat-table [dataSource]="questions" class="mat-elevation-z8" class="table-container">
+      <ng-container matColumnDef="label">
+        <mat-header-cell *matHeaderCellDef> Question </mat-header-cell>
+        <mat-cell *matCellDef="let question">{{ question.label }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="type">
+        <mat-header-cell *matHeaderCellDef>  Type Question</mat-header-cell>
+        <mat-cell *matCellDef="let question">{{ question.responseType }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="responses">
+        <mat-header-cell *matHeaderCellDef> Reponses </mat-header-cell>
+        <mat-cell *matCellDef="let question">{{ question.responses.join(', ') }}</mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator [pageSize]="8" showFirstLastButtons></mat-paginator>
+  </div>
+</div>

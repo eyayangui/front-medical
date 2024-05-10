@@ -1,0 +1,36 @@
+
+<mat-accordion class="example-headers-align" multi="true">
+  <mat-expansion-panel *ngFor="let exam of exams; let i = index">
+    <mat-expansion-panel-header>
+      {{ exam.libelle }}
+    </mat-expansion-panel-header>
+    <ng-container *ngIf="exam.questions">
+      <ul class="question-list">
+        <li *ngFor="let question of exam.questions">
+          <div class="question-container">
+            <p>{{ question.label }}</p>
+            <ul class="response-list">
+              <li *ngFor="let response of question.selectedResponses">
+                {{ response.response }}
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </ng-container>
+  </mat-expansion-panel>
+</mat-accordion>
+<div class="button-container">
+  <button class="action-button update-button" (click)="navigateToUpdate(consultationId)">Modifier</button>
+
+  <button class="action-button print-button" (click)="printExams()">
+    <mat-icon>print</mat-icon> Imprimer
+  </button>
+</div>
+
+
+
+
+
+
+

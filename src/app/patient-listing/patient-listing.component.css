@@ -1,0 +1,19 @@
+.custom-header-cell {
+  color: black; /* Text color */
+  font-weight: bold; /* Bold text for better readability */
+}
+
+.table-container {
+  margin-bottom: 50px; /* Adjust the value as needed */
+  overflow-x: auto; /* Enable horizontal scrolling if table content exceeds container width */
+  width: 100%; /* Ensure the table container takes up the entire width */
+}
+
+.button-container {
+  margin-left: auto;
+}
+
+.scrollable-content {
+  max-height: 550px; /* Set a specific maximum height for the scrollable content */
+  overflow-y: auto; /* Enable vertical scrolling when content exceeds the maximum height */
+}
